@@ -34,7 +34,7 @@ function build(isbn) {
 
   var odd = false;
 
-  var stores = BBSVC.active_stores(true);
+  var stores = BBSVC.active_stores();
   for (var i=0; i<stores.length; i++) {
     odd = !odd;
     addSite(stores[i], odd);
@@ -46,11 +46,6 @@ function build(isbn) {
   }
 };
 
-
-//     var isbn = find_isbn(window);
-//     alert(isbn);
-// //    if (isbn) build(isbn);
-//   });
 
 chrome.tabs.getSelected(null,
   function show(tab) {

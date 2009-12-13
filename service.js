@@ -18,18 +18,9 @@ var DEBUG = true;
  * Constants
  */
 
-// const Cc = Components.classes;
-// const Ci = Components.interfaces;
-
-// const PREFS = Cc['@mozilla.org/preferences-service;1']
-//   .getService(Ci.nsIPrefService)
-//   .getBranch('extensions.bookburro.');
 
 function getSourcePref(name) {
-  // if (PREFS.getPrefType(name)) {
-  //   return PREFS.getBoolPref(name);
-  //     }
-  return false;
+  return localStorage[name];
 };
 
 
