@@ -1,5 +1,6 @@
 var BBSVC = chrome.extension.getBackgroundPage();
 
+
 function build(isbn) {
   var doc = document;
   var html = DomBuilder.apply(window);
@@ -45,4 +46,14 @@ function build(isbn) {
   }
 };
 
-build('1590598210');
+
+//     var isbn = find_isbn(window);
+//     alert(isbn);
+// //    if (isbn) build(isbn);
+//   });
+
+chrome.tabs.getSelected(null,
+  function show(tab) {
+    var isbn = find_isbn(tab);
+    build(isbn);
+  });
