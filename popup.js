@@ -5,31 +5,29 @@ function build(isbn) {
   var doc = document;
   var html = DomBuilder.apply(window);
 
-  var table = doc.getElementById('container');
+  var ul = doc.getElementById('dealList');
 
 
   function addSite(site, odd) {
-    var row = html.TR({'class': 'site '+ (odd ? 'odd' : ''), 'busy': !!site.check});
-    row.appendChild(
-      html.TH(
-        html.A({'title': site.title, 'href': site.url(isbn), 'target': '_blank', 'onclick': 'window.close()'}, site.title)));
-
-    var result = html.TD({'class': 'price'});
-    row.appendChild(result);
+    var li = html.LI({'class': 'site ', 'busy': !!site.check});
+    li.appendChild(
+      html.A({'title': site.title, 'href': site.url(isbn), 'target': '_blank', 'onclick': 'window.close()'}, site.title));
+    var price = html.SPAN({'class':'price'});
+    li.appendChild(price);
 
     if (site.check) {
       site.check(isbn,
         function(i) {
-          row.removeAttribute('busy');
-          result.appendChild(doc.createTextNode(i));
+          li.removeAttribute('busy');
+          price.appendChild(doc.createTextNode(i));
         },
         function(i) {
-          row.removeAttribute('busy');
-          result.appendChild(doc.createTextNode(i));
+          li.removeAttribute('busy');
+          price.appendChild(doc.createTextNode(i));
         });
     }
 
-    table.appendChild(row);
+    ul.appendChild(li);
   }
 
   var odd = false;
