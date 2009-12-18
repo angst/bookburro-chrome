@@ -4,17 +4,49 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>title</title>
     <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+    <script src="jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script type="text/javascript" charset="utf-8">
+    	$(function() {
+        $('div#options').hide();
+
+        $('a#optionsLink').click(function() {
+          $('div#popup').hide();
+          $('div#options').fadeIn();
+          return false;
+        });
+
+        $('a#closeLink').click(function() {
+          $('div#options').hide();
+          $('div#popup').fadeIn();
+          return false;
+        });
+      
+       var tabs = $('div#tabs > div');
+       tabs.hide().filter(":first").fadeIn();
+    	});
+    </script>
   </head>
-  <body>
+  <body id="main">
     <div id="wrapper">
-      <div id="header">
-        <h3>Book Burro</h3>
-        <div id="buttons">
-          <a href="#"><img src="tools.gif" class="icon" id="options" alt="Options" /></a>
+      <div id="popup">
+        <div class="header">
+          <h3>Book Burro</h3>
+          <div id="buttons">
+            <a id="optionsLink" href="#"><img src="tools.png" class="icon" alt="Options" width="16" height="16"/></a>
+          </div>
+        </div>
+        <ul id="dealList"></ul>
+      </div>
+      <div id="options">
+        <div class="header">
+          <h3>Book Burro Options</h3>
+          <div id="buttons">
+            <a id="closeLink" href="#"><img src="x.png" class="icon" id="results" alt="Back to results." width="16" height="16"/></a>
+          </div>
+          <iframe src="options.html"></iframe>
         </div>
       </div>
-      <ul id="dealList"></ul>
-      <div class="clear">&nbsp;</div>
     </div>
     <script src="dombuilder.js"></script>
     <script src="logic.js"></script>
