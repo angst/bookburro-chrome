@@ -30,6 +30,8 @@
       <ul id="tabNav">
         <li><a href="#stores">Book Stores</a></li>
         <li><a href="#libraries">Libraries</a></li>
+        <li><a href="#worldcat">WorldCat</a></li>
+        <li><a href="#affiliates">Affiliates</a></li>
       </ul>
       <div id="stores">
         <p class="instructions">Select the stores which you would like to receive results from.</p>
@@ -40,6 +42,20 @@
         <input id="library-search" type="text" oninput="updateSearch(this)" />
         <p class="formCaption">Type to filter results</p>
         <ul id="libraries-list"></ul>
+      </div>
+      <div id="worldcat">
+        <div class="blockInstructions">
+          <p>WorldCat is a worldwide union catalog created and maintained collectively by more than 9,000 member institutions. With millions of online records built from the bibliographic and ownership information of contributing libraries, it is the largest and most comprehensive database of its kind.</p>
+          <p>Book Burro used to show you WorldCat library holdings near your location, but they haven't given us a key to the new API, once we have one we will re-add this feature.</p>
+          <p>In the mean time we will link you to the WorldCat search results page of libraries near you.</p>
+        </div>
+        <input id="worldcat" type="text" oninput="updateSearch(this)" />
+        <p class="formCaption">Your location (postal code, state, province, or country)</p>
+      </div>
+      <div id="affiliates">
+        <p class="instructions">By default Book Burro uses affiliate codes when it creates links to stores when it has them. These help support the further development of Book Burro. If you wish, you may disable affiliate codes.</p>    
+        <label for="disableAffiliate">Disable Affiliate Codes</label>    
+        <input type="checkbox" name="disableAffiliate" value="disableAffiliate" />
       </div>
     </div>
   </body>
